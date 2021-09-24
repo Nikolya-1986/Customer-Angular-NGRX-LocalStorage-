@@ -1,0 +1,48 @@
+<form 
+    action="#"
+    (ngSubmit)="editCustomer()"
+    >
+    <div class="form-group mb-3">
+        <input
+            class="form-control mb-2"
+            type="text"
+            name="editName"
+            placeholder="Edit name..."
+            [(ngModel)]="editName"
+        />
+    </div>
+
+    <div class="form-group mb-3">
+        <input
+            class="form-control mb-2"
+            type="text"
+            name="editPhoneNumber"
+            placeholder="Edit number phone..."
+            [(ngModel)]="editPhoneNumber"
+        />
+    </div>
+
+    <div class="form-group mb-3">
+        <input
+            class="form-control mb-2"
+            type="text"
+            name="editFinancialDebt"
+            placeholder="Edit financial debt..."
+            [(ngModel)]="editFinancialDebt"
+        />
+    </div>
+
+    <button 
+        class="btn btn-primary me-3"
+        [disabled]="!editName && !editPhoneNumber && !editFinancialDebt"
+        >
+        OK
+    </button>
+    <button
+        class="btn btn-danger" 
+        type="button"
+        (click)="cancel()">
+        Cansel
+    </button>
+    <br><br>
+</form>

@@ -1,0 +1,58 @@
+<h3>
+    {{ title }}
+</h3>
+<form
+    class="customer__create"
+    [formGroup]="formCustomers"
+    novalidate
+    (submit)="createCustomer()"
+    >
+
+    <div class="form-group mb-3">
+        <input
+            class="form-control mb-2"
+            type="text"
+            placeholder="Enter name organization..."
+            formControlName="nameOrganization"
+            [(ngModel)]="name"
+        />
+    </div>
+
+    <div class="form-group mb-3">
+        <input
+          class="form-control mb-2"
+          type="text"
+          placeholder="Enter number phone..."
+          formControlName="phoneNumberCustomer"
+          [(ngModel)]="phoneNumber"
+        />
+    </div>
+
+    <div class="form-group mb-3">
+        <input
+            class="form-control mb-2"
+            type="text"
+            placeholder="Enter financial debt in $..."
+            formControlName="financialDebtCustomer"
+            [(ngModel)]="financialDebt"
+        />
+    </div>
+
+    <button
+        class="btn btn-success"
+        type="submit"
+        [disabled]="formCustomers.invalid"
+        (click)="openModal()"
+        >
+        Save Customer
+    </button>
+
+    <br><br>
+    <hr>
+
+    <app-validation
+        [formCustomers]="formCustomers"
+        >
+    </app-validation>
+
+</form>

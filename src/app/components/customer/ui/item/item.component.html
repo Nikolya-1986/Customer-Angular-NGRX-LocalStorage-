@@ -1,0 +1,62 @@
+<label class="w-100" for="checkboxCustomer">
+    The state of the client's debt:
+    <input
+        id="checkboxCustomer"
+        class="mb-4"
+        type="checkbox" 
+        [checked]="customer.completed"
+        (click)="toggleCustomer($event)"
+    />
+    <del *ngIf="customer.completed">
+        <p class="d-flex justify-content-between">
+            Name organization: 
+            <span>
+                {{ customer.name }}
+            </span>
+        </p>
+        <p class="d-flex justify-content-between">
+            Phone number: 
+            <span>
+                {{ customer.phoneNumber }}
+            </span>
+        </p>
+        <p class="d-flex justify-content-between">
+            Financial debt:
+            <span>
+                {{ customer.financialDebt | currency:"USD":true:"1.1-2" }}
+            </span>
+        </p>
+    </del>
+    <div *ngIf="!customer.completed">
+        <p class="d-flex justify-content-between">
+            Name organization:
+            <span>
+                {{ customer.name }}
+            </span>
+        </p>
+        <p class="d-flex justify-content-between">
+            Phone number:
+            <span>
+                {{ customer.phoneNumber }}
+            </span>
+        </p>
+        <p class="d-flex justify-content-between">
+            Financial debt:
+            <span>
+                {{ customer.financialDebt | currency:"USD":true:"1.1-2" }}
+            </span>
+        </p>
+    </div>
+</label>
+<button
+    class="btn btn-danger me-3"
+    (click)="removeCustomer()"
+    >
+    Delete
+</button>
+<button
+    class="btn btn-primary"
+    (click)="editCustomer()"
+    >
+    Edit
+</button>

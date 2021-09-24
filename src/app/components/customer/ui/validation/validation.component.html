@@ -1,0 +1,45 @@
+<div class="validations">
+
+    <span *ngIf="formCustomers.controls['nameOrganization'].touched">
+      <i
+        class="far fa-check-circle validations__valid"
+        *ngIf="formCustomers.controls.nameOrganization.valid"
+        >
+      </i>
+      <i
+        class="far fa-times-circle validations__invalid"
+        *ngIf="formCustomers.controls.nameOrganization.invalid"
+        >
+      </i>
+      The name of the organization must contain not less than 3 letters!!!
+    </span>
+
+    <span *ngIf="formCustomers.controls['phoneNumberCustomer'].touched">
+      <i
+        class="far fa-check-circle validations__valid"
+        *ngIf="formCustomers.controls.phoneNumberCustomer.valid"
+        >
+      </i>
+      <i
+        class="far fa-times-circle validations__invalid"
+        *ngIf="formCustomers.controls.phoneNumberCustomer.invalid"
+        >
+      </i>
+      The phone number must contain only numbers. Input format: 375-44-1234567!!!
+    </span>  
+  
+    <span *ngIf="formCustomers.controls['financialDebtCustomer'].touched">
+      <i
+        class="far fa-check-circle validations__valid"
+        *ngIf="formCustomers.controls.financialDebtCustomer.valid"
+        >
+      </i>
+      <i
+        class="far fa-times-circle validations__invalid"
+        *ngIf="formCustomers.controls.financialDebtCustomer.invalid"
+        >
+      </i>
+      The debt must be not more than a 5-digit number!!!
+    </span>
+  
+</div>

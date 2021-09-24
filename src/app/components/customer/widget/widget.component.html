@@ -1,0 +1,43 @@
+<div class="row d-flex justify-content-center">
+    <div class="col-sm-6">
+        <app-create-customer
+            (onCreateCustomer)="createCustomer($event)"
+            (onOpenModal)="openModal($event)"
+            >
+        </app-create-customer>
+    </div>
+
+    <div class="col-sm-6">
+        <app-list
+            [customerList]="customerList$ | async"
+            (onRemoveCustomer)="removeCustomer($event)"
+            (onToggleCustomer)="toggleCustomer($event)"
+            (onEditCustomer)="editCustomer($event)"
+            >
+        </app-list>
+    </div>
+</div>
+<app-modal
+    [customerList]="customerList$ | async"
+    >
+    <div class="text-center">
+        <h2>
+            Congratulations, you have created a new customer
+        </h2>
+        <ul>
+            <li *ngFor="let customer of customerList$ | async">
+                <div>
+                    <p>
+                        Customer's name: {{ customer.name }}
+                    </p>
+                    <p>
+                        Customer's phone number: {{ customer.phoneNumber }}
+                    </p>
+                    <p>
+                        Customer's financial debt: {{ customer.financialDebt | currency:"USD":true:"1.1-2" }}
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</app-modal>

@@ -1,0 +1,11 @@
+.validations > span{
+    display: block;
+}
+  
+.validations__valid {
+    color: var(--primary-color_2)
+}
+  
+.validations__invalid {
+    color: var(--primary-color);
+}
